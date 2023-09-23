@@ -7,11 +7,17 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Deteils from './Card/Deteils/Deteils.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    
+  },
+  {
+    path: "deteils",
+    element: <Deteils />,
   },
 ]);
 
