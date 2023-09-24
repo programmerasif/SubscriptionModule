@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import img from "../../assets/offers_icon.jpg"
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 const Deteils = () => {
     const [data,setData] = useState([])
     const [year, setYear] =useState(false)
@@ -23,6 +23,7 @@ const Deteils = () => {
         setYear(false)
         
     }
+    
     return (
         <div className=" flex justify-center items-center flex-col ">
             <div className="bg-[#f7f7f7] w-full xl:p-0 p-5">
@@ -43,7 +44,7 @@ const Deteils = () => {
             </div>
             <div className="flex justify-around items-center xl:p-0 p-5 xl:flex-row flex-col gap-10">
             <div className="flex justify-start gap-5 mt-4 items-start flex-col">
-                <span className="text-xl"><span className="text-blue-500 text-2xl font-bold">Basic Price : </span> {item?.price == 0? "Free" : item?.price} $</span>
+                <span className="text-xl"><span className="text-blue-500 text-2xl font-bold">Basic Price : </span> {item?.price == 0 ? `${year ? 10 : "Free"}` : `${year ? item?.price + 20 : item?.price}`}$</span>
                 <form>
                 Monthlt : <span className={`border border-black me-4 cursor-pointer  bg-white text-white rounded-full shadow-sm ${month == true ?  " bg-blue-500 text-blue-500 ring-2 ring-blue-400 border-none" : " bg-white text-white"}  `} onClick={handelMonth}>.....</span>
                 Yearly : <span className={`border border-black  cursor-pointer rounded-full ${year == true ?  " bg-blue-500 text-blue-500 ring-2 ring-blue-400 border-none" : " bg-white text-white"} `} onClick={handelYear}>.....</span>
@@ -52,7 +53,7 @@ const Deteils = () => {
             </div>
             <div className=" flex justify-center items-center gap-10 p-10 drop-shadow-lg mt-4 rounded-md text-black bg-white">
                 <h5 className="font-bold"><span className="text-blue-500">{item?.price == 0 ? `${year ? 10 : "Free"}` : `${year ? item?.price + 20 : item?.price}`}$</span>  {year ? "/Yearly" : "/monthly"}</h5>
-                <div className="bg-blue-500 text-white px-7 py-3 rounded-md">Order Now</div>
+                 <Link to={`/payment/${year ? item?.price+ 10 : item?.price}`}><div className="bg-blue-500 text-white px-7 py-3 rounded-md">Order Now</div></Link>
             </div>
             </div>
             <div className="w-full xl:w-[45%] font-bold mt-5 xl:p-0 p-5">
