@@ -16,8 +16,9 @@ const router = createBrowserRouter([
     
   },
   {
-    path: "deteils",
+    path: "deteils/:id",
     element: <Deteils />,
+    loader: ({params}) => {return params}
   },
 ]);
 

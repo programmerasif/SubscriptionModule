@@ -1,6 +1,6 @@
-import { data } from 'autoprefixer';
+
 import { useEffect, useState } from 'react';
-import { FaBicycle, FaCarCrash, FaCarSide, FaCheck, FaPlaneDeparture } from 'react-icons/fa';
+import { FaBicycle,  FaCarSide, FaCheck, FaPlaneDeparture } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 const Card = () => {
     
@@ -36,7 +36,7 @@ const Card = () => {
       }
         
      </div>
-     <Link to='/deteils'><button className={`${item.type == "Pro" ? "bg-[#ff7473]" : item.type == "Start-Up" ? 'bg-[#5a5679]' : 'bg-[#47b8e0]'} px-8 py-3 text-xl w-full text-white mt-3 rounded-sm`}>Subscribe</button></Link>
+     <Link to={`/deteils/${item._id}`}><button className={`${item.type == "Pro" ? "bg-[#ff7473]" : item.type == "Start-Up" ? 'bg-[#5a5679]' : 'bg-[#47b8e0]'} px-8 py-3 text-xl w-full text-white mt-3 rounded-sm`}>Subscribe</button></Link>
 </div>
                </>)
             }
